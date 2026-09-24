@@ -10,7 +10,6 @@ local savedWS, savedJP
 local upBtn, downBtn
 local upPressed, downPressed = false, false
 local flyEnabled = false
-local wallhackRef = {enabled = false}
 
 local function getAnalogMove()
     local c = LP.Character
@@ -69,7 +68,9 @@ local function stop()
         if hrp then hrp.AssemblyLinearVelocity = Vector3.zero end
     end
     savedWS, savedJP = nil, nil
-endlocal function start()
+end
+
+local function start()
     flyEnabled = true
     local c = LP.Character
     if not c then return end
@@ -107,7 +108,8 @@ endlocal function start()
         if not flyAlign or not flyAlign.Parent then return end
         local mv = getAnalogMove()
         local vr = getVertical()
-        local sp = (LP.Character:FindFirstChildOfClass("Humanoid") and LP.Character:FindFirstChildOfClass("Humanoid").WalkSpeed) or 16
+        local hum = LP.Character:FindFirstChildOfClass("Humanoid")
+        local sp = hum and hum.WalkSpeed or 16
         if sp <= 0 then sp = 16 end
         local fm = mv
         if vr ~= 0 then
@@ -185,9 +187,6 @@ function Fly.init(ctx)
         if state then start() else stop() end
     end
     Fly.isEnabled = function() return flyEnabled end
-    Fly.toggle = function(state)
-        if state then start() else stop() end
-    end
     Fly.onCharAdded = function()
         if flyEnabled then
             task.wait(0.3)
