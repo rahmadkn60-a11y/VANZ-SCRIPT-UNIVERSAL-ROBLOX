@@ -1,5 +1,5 @@
 local UIS = game:GetService("UserInputService")
-local Theme = require(script.Parent.Parent.Theme)
+local Theme = require("Theme")
 local T = Theme.T
 
 local Elements = {}
