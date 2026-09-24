@@ -3,8 +3,8 @@ local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 local LP = Players.LocalPlayer
 
-local Utils = require(script.Parent.Parent.Utils)
-local Theme = require(script.Parent.Parent.Theme)
+local Utils = require("Utils")
+local Theme = require("Theme")
 
 local ESP = {}
 local enabled = false
