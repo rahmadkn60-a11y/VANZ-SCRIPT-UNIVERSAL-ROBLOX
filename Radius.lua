@@ -1,8 +1,8 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local LP = Players.LocalPlayer
-local Utils = require(script.Parent.Parent.Utils)
-local Theme = require(script.Parent.Parent.Theme)
+local Utils = require("Utils")
+local Theme = require("Theme")
 
 local Radius = {}
 local enabled = false
