@@ -1,4 +1,4 @@
-local BASE_URL = "https://raw.githubusercontent.com/rahmadkn60-a11y/VANZ-SCRIPT-UNIVERSAL-ROBLOX/refs/heads/main/loader.lua"
+local BASE_URL = "https://raw.githubusercontent.com/rahmadkn60-a11y/VANZ-SCRIPT-UNIVERSAL-ROBLOX/refs/heads/main/Loader.lua"
 
 local Loader = loadstring(game:HttpGet(BASE_URL, true))()
 _G.__VANZ_LOADER = Loader
