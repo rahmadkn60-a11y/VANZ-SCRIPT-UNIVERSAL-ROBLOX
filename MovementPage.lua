@@ -1,4 +1,4 @@
-local Elements = require(script.Parent.Parent.Elements)
+local Elements = require("UI/Elements")
 local UIS = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 local LP = Players.LocalPlayer
