@@ -112,4 +112,25 @@ local function start()
         if groundRes and groundRes.Instance then
             newPos = Vector3.new(newPos.X, groundRes.Position.Y + 3, newPos.Z)
         end
-        myHrp.CFrame = CFrame.new(newPos) *
+        myHrp.CFrame = CFrame.new(newPos) * (myHrp.CFrame - myHrp.Position)
+        myHrp.AssemblyLinearVelocity = Vector3.zero
+        myHrp.AssemblyAngularVelocity = Vector3.zero
+        flash()
+    end)
+end
+
+local function stop()
+    enabled = false
+    if conn then conn:Disconnect() conn = nil end
+    if indicator then indicator.Visible = false end
+end
+
+function AutoDodge.init(ctx)
+    AutoDodge.screen = ctx.screen
+    AutoDodge.set = function(s) if s then start() else stop() end end
+    AutoDodge.setTeamSafe = function(s) teamSafe = s end
+    AutoDodge.setRadius = function(v) radius = v end
+    AutoDodge.setDistance = function(v) distance = v end
+end
+
+return AutoDodge
