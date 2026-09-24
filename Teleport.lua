@@ -1,7 +1,7 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local LP = Players.LocalPlayer
-local Utils = require(script.Parent.Parent.Utils)
+local Utils = require("Utils")
 
 local Teleport = {}
 local selected = nil
