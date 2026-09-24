@@ -7,7 +7,8 @@ function TabSystem.init(Core)
 end
 
 function TabSystem.switchTab(name)
-    local T = require(script.Parent.Parent.Theme).T
+    local Theme = require("Theme")
+    local T = Theme.T
     for tName, tData in pairs(TabSystem.tabs) do
         if tData.frame then tData.frame.Visible = false end
         if tData.btn then
@@ -25,10 +26,9 @@ function TabSystem.switchTab(name)
 end
 
 function TabSystem.createTab(name, label)
-    local Theme = require(script.Parent.Parent.Theme)
+    local Theme = require("Theme")
     local T = Theme.T
     local Core = TabSystem.core
-
     local btn = Instance.new("TextButton", Core.tabBar)
     btn.Size = UDim2.new(0, 44, 0, 26)
     btn.BackgroundColor3 = T.off
@@ -38,7 +38,6 @@ function TabSystem.createTab(name, label)
     btn.Font = Enum.Font.GothamBold
     btn.LayoutOrder = #TabSystem.tabs + 1
     Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
-
     local frame = Instance.new("Frame", Core.body)
     frame.Size = UDim2.new(1, 0, 0, 0)
     frame.AutomaticSize = Enum.AutomaticSize.Y
@@ -48,7 +47,6 @@ function TabSystem.createTab(name, label)
     local fl = Instance.new("UIListLayout", frame)
     fl.Padding = UDim.new(0, 6)
     fl.SortOrder = Enum.SortOrder.LayoutOrder
-
     TabSystem.tabs[name] = {btn = btn, frame = frame, label = label or name}
     btn.MouseButton1Click:Connect(function() TabSystem.switchTab(name) end)
     return frame
