@@ -3,8 +3,8 @@ local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 local LP = Players.LocalPlayer
 
-local Utils = require(script.Parent.Parent.Utils)
-local Theme = require(script.Parent.Parent.Theme)
+local Utils = require("Utils")
+local Theme = require("Theme")
 
 local Aimbot = {}
 local enabled = false
@@ -196,7 +196,6 @@ local function stop()
 end
 
 function Aimbot.init(ctx)
-    local T = ctx.theme.T
     circleFrame = Instance.new("Frame", ctx.screen)
     circleFrame.Name = "vanzAimbotCircle"
     circleFrame.AnchorPoint = Vector2.new(0.5, 0.5)
